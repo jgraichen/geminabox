@@ -9,7 +9,6 @@ class GeminaboxClient
     @http_client = HTTPClient.new
     @http_client.set_auth(url_for(:upload), @username, @password) if @username or @password
     @http_client.www_auth.basic_auth.challenge(url_for(:upload)) # Workaround: https://github.com/nahi/httpclient/issues/63
-    @http_client.ssl_config.ssl_version = "" # https://github.com/nahi/httpclient/pull/186
     @http_client.send_timeout = 0
     @http_client.receive_timeout = 0
   end
